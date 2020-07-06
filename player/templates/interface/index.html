@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streamify</title>
+    <link rel="stylesheet" href="{% static "streamify/scripts/style.css" %}">
+</head>
+<body>
+    <audio src="{% static "streamify/assets/media/Summertime.mp3" %}" id="song"></audio>
+
+    <div class="container">
+        <div class="box"></div>
+        <img src="{% static "streamify/assets/cuco.jpg" %}" id="albumCover" />
+
+        <div class="buttons">
+          <img src="{% static "streamify/assets/play.png" %}" onclick="playPause()" id="play-pause" />
+          <img src="{% static "streamify/assets/forward.png" %}" onclick="nextSong()" id="next-song" />
+          <img src="{% static "streamify/assets/backward.png" %}" onclick="previousSong()" id="previous-song" />
+        </div>
+
+        <div class="song-artist">Cuco</div>
+        <div class="song-title">Summertime</div>
+
+        <input
+            type="range"
+            id="progress-bar"
+            min="0"
+            max=""
+            value="0"
+            onchange="changeProgressBar()"
+        />
+
+        <div class="currentTime"></div>
+        <div class="durationTime"></div>
+    </div>
+    <h1 id="song"></h1>
+    <script>
+        {% for song in songs %}
+          var music = {{ song.songfile.url }};
+          var title = {{ song.title }};
+        {% endfor %}
+        document.getElementById("song").innerHTML = title;
+    </script>
+    <script src="player.js"></script>
+</body>
+</html>

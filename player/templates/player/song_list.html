@@ -1,0 +1,21 @@
+<div>
+    <h1><a href="/">Streamify Songs</a></h1>
+</div>
+
+{% for song in songs %}
+    <div>
+        <p>published: {{ song.published_date }}</p>
+        <h2><a href="">{{ song.title }}</a></h2>
+        <audio controls>
+          <source src="{{ song.songfile.url }}" type="audio/mpeg">
+        </audio>
+    </div>
+{% endfor %}
+<h1 id="song">test</h1>
+<script>
+    {% for song in songs %}
+      var music = {{ song.songfile.url }};
+      var title = {{ song.title }};
+    {% endfor %}
+    document.getElementById("song").innerHTML = title;
+</script>
