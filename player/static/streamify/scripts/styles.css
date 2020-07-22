@@ -61,11 +61,14 @@ li a:hover {
 }
 
 .text-field {
+  position: relative;
+  top: 15%;
   width: 75%;
   padding: 75px 5px 5px 5px;
 }
 
 .text-field input {
+  height: 1px;
   border: none;
   outline:none;
   background: none;
@@ -86,7 +89,9 @@ li a:hover {
 }
 
 .button {
-  left: 50%;
+  position: absolute;
+  left: 72.5%;
+  bottom: 50%;
 }
 
 .signin-button {
@@ -94,11 +99,11 @@ li a:hover {
   border:none;
   cursor: pointer;
   position: absolute;
-  bottom: 20%;
-  height: 60px;
+  bottom: 30%;
+  height: 20px;
   border-radius: 30px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 500;
   font-family: 'Lato', sans-serif;
   color:#fff;
   text-align: center;
@@ -111,5 +116,5 @@ li a:hover {
   background:#ffffff;
 }
 .signin-button:active {
-  background:#1da88a;
+  background:#000000;
 }
